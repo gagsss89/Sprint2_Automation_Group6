@@ -31,8 +31,16 @@ public class HomePage {
     @FindBy(id = "answer_0__1_")
     public WebElement pollAnswer2Field;
 
+    @FindBy(id = "answer_0__2_")
+    public WebElement pollAnswer3Field;
+
     @FindBy(id = "feed-add-post-form-tab-message")
     public WebElement blogMessageButton;
 
+    @FindBy(xpath = "(//iframe[@class='bx-editor-iframe'])[1]")
+    public WebElement messageIframe;
+
+    @FindBy(tagName = "body")
+    public WebElement textField;
 
 }
