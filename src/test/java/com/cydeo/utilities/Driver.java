@@ -33,7 +33,7 @@ public class Driver {
 
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
                     break;
 
                 case"firefox":
