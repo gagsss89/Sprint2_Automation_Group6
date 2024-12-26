@@ -31,8 +31,17 @@ public class HomePage {
     @FindBy(id = "answer_0__1_")
     public WebElement pollAnswer2Field;
 
+    @FindBy(id = "answer_0__2_")
+    public WebElement pollAnswer3Field;
+
     @FindBy(id = "feed-add-post-form-tab-message")
     public WebElement blogMessageButton;
 
+    @FindBy(xpath = "(//iframe[@class='bx-editor-iframe'])[1]")
+    public WebElement messageIframe;
+
+    //Field where you can add text to message (you need to switch to message Iframe before adding a message
+    @FindBy(tagName = "body")
+    public WebElement textField;
 
 }

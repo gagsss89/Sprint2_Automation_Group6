@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.HomePage;
 import com.cydeo.pages.LoginPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,8 +10,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 public class Poll_StepDefinitions {
+
+    //BrowserUtils browserUtils = new BrowserUtils();
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
@@ -26,9 +30,9 @@ public class Poll_StepDefinitions {
 
     @When("user add message")
     public void user_add_message() {
-        //Driver.getDriver().switchTo().frame(Driver.getDriver().findElement(By.xpath("(//iframe[@class='bx-editor-iframe'])[1]")));
-
-        //Driver.getDriver().switchTo().parentFrame();
+        Driver.getDriver().switchTo().frame(homePage.messageIframe);
+        homePage.textField.sendKeys("Test message");
+        Driver.getDriver().switchTo().parentFrame();
     }
 
     @When("user enter poll question and two answers")
@@ -45,7 +49,7 @@ public class Poll_StepDefinitions {
 
     @Then("created poll should be displayed in the field")
     public void created_poll_should_be_displayed_in_the_field() {
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//div[.='Test Quetion']")).isDisplayed());
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//div[.='Test question']")).isDisplayed());
     }
 
     @When("user click cancel button")
@@ -62,6 +66,8 @@ public class Poll_StepDefinitions {
 
     @And("user remove third answer option")
     public void userRemoveThirdAnswerOption() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(homePage.pollAnswer3Field).perform();
         homePage.deleteAnswer3.click();
     }
 }
