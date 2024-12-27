@@ -16,23 +16,20 @@ public class EmployeePage {
     @FindBy(xpath = "//a[@title = 'Employees']")
     public WebElement employeeBnt;
 
-    @FindBy(xpath = "(//span[.='Company Structure'])[1] " +
-            "| (//span[.='Find Employee'])[1] " +
-            "| (//span[. = 'Telephone Directory'])[1]" +
-            "| (//span[. = 'Staff Changes'])[1]" +
-            "| (//span[. = 'Efficiency Report'])[1]" +
-            "| (//span[. = 'Honored Employees'])[1]" +
-            "| (//span[. = 'Birthdays'])[1]" +
-            "| (//span[. = 'New page'])[1]"
-    )
+    @FindBy(xpath = "//div[@id = 'top_menu_id_company']/div/a//span[@class = 'main-buttons-item-text-title']")
     public List<WebElement> employeeOptions;
 
-    @FindBy(id = "top_menu_id_company_more_button")
+    @FindBy(xpath = "(//span[. = 'More'])[2]")
     public WebElement moreBtn;
 
-//    @FindBy (xpath = "//a[@class= 'menu-popup-item main-buttons-submenu-item item6']"
-//    )
-//    public List <WebElement> hiddenElements;
+   @FindBy (xpath ="//div[@class = 'menu-popup-items']//a")
+    public List <WebElement> hiddenElements;
+
+   @FindBy(xpath = "(//span[. = 'Hidden'])[4]")
+    public WebElement hiddenSection;
+
+   @FindBy(xpath = "(//span[. = 'Settings'])[3]")
+    public WebElement settingsSection;
 
 
 
