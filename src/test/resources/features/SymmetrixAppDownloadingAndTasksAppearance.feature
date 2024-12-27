@@ -5,7 +5,7 @@ Feature: Downloading the applications and verifying the Task module appearance
   Background: for all scenarios user in on home page of the Symmetrix website
     Given user is already logged in on website
 
-  @wip2
+
   Scenario: verify users can see 3 desktop versions to download the desktop app.
     When user scrolls down and sees the Desktop applications versions
     Then user can see three Desktop applications from below
@@ -14,3 +14,10 @@ Feature: Downloading the applications and verifying the Task module appearance
       | LINUX   |
     Then user can click each option
 
+  @wip2
+  Scenario: Verify users can select 2 mobile versions to download the mobile app.
+    When user scrolls down and sees the Mobile applications versions
+    Then user can see two mobile applications from below
+      | APP STORE   |
+      | GOOGLE PLAY |
+    Then user can click on each option
