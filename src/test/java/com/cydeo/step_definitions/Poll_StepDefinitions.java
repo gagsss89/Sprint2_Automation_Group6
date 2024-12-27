@@ -4,6 +4,7 @@ import com.cydeo.pages.HomePage;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,8 +14,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
 public class Poll_StepDefinitions {
+    Faker faker = new Faker();
+    String testWord = faker.bothify("Random-question-####?");
 
-    //BrowserUtils browserUtils = new BrowserUtils();
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
@@ -37,7 +39,7 @@ public class Poll_StepDefinitions {
 
     @When("user enter poll question and two answers")
     public void user_enter_poll_question_and_two_answers() {
-        homePage.pollQuestionField.sendKeys("Test question");
+        homePage.pollQuestionField.sendKeys(testWord);
         homePage.pollAnswer1Field.sendKeys("YES");
         homePage.pollAnswer2Field.sendKeys("NO");
     }
@@ -49,7 +51,7 @@ public class Poll_StepDefinitions {
 
     @Then("created poll should be displayed in the field")
     public void created_poll_should_be_displayed_in_the_field() {
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//div[.='Test question']")).isDisplayed());
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//div[.='"+testWord+"']")).isDisplayed());
     }
 
     @When("user click cancel button")
