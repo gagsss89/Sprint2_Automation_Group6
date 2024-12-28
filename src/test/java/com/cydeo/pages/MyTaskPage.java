@@ -14,11 +14,14 @@ public class MyTaskPage {
     @FindBy(xpath = "//div[.='My Tasks']")
     public WebElement myTaskWindow;
 
+
     @FindBy(xpath = "(//span[@class='task-item-text'][1])")
     public WebElement ongoingTasks;
 
+
     @FindBy(xpath = "(//span[@class='task-item-index'][1])")
     public WebElement ongoingNumberOfTasks;
+
 
 
 }
