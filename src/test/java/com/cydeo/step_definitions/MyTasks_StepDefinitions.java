@@ -19,6 +19,7 @@ public class MyTasks_StepDefinitions {
     public void user_should_see_my_task_window_on_the_page() {
         BrowserUtils.verifyElementDisplayed(myTaskPage.myTaskWindow);
 
+
     }
 
     @Then("user should see the Ongoing task summary option")
@@ -27,8 +28,10 @@ public class MyTasks_StepDefinitions {
 
     }
 
+
     @Then("user should see the number of task")
     public void user_should_see_the_number_of_task() {
         BrowserUtils.verifyElementDisplayed(myTaskPage.ongoingNumberOfTasks);
     }
+
 }
