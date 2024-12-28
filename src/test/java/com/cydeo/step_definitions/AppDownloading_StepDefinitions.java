@@ -4,6 +4,7 @@ import com.cydeo.pages.DownloadAppsPage;
 import com.cydeo.pages.HomePage;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.io.input.BrokenInputStream;
@@ -76,9 +77,11 @@ public class AppDownloading_StepDefinitions {
         downloadAppsPage.appStore.isEnabled();
         BrowserUtils.waitFor(2);
         downloadAppsPage.appStore.click();
+       // BrowserUtils.switchToWindow("envURL");
         BrowserUtils.waitFor(2);
         downloadAppsPage.googlePlay.isEnabled();
         BrowserUtils.waitFor(2);
         downloadAppsPage.googlePlay.click();
+        BrowserUtils.waitFor(2);
     }
 }
