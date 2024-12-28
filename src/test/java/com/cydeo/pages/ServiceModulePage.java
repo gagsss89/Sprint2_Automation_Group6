@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,7 +35,6 @@ public class ServiceModulePage {
     public WebElement settings;
 
 
-
     @FindBy (xpath = "//span[@class='menu-popup-item-text' and (text()='Configure Menu' or text()='Reset menu')]")
     public List<WebElement> actual;
 
@@ -52,4 +52,27 @@ public class ServiceModulePage {
 
     @FindBy (xpath ="//a[.='Using portal services']")
     public WebElement usingPortalServices;
+
+    @FindBy (xpath = "//li[@class='point-faq']")
+    public List<WebElement> questions;
+
+    @FindBy (xpath = "//span[.='Like']")
+    public List<WebElement> likeButton;
+
+    @FindBy (xpath = "(//table[@class='data-table'])[2]//p"
+            + "| (//table[@class='data-table'])[3]//li[1]"
+            + "| (//table[@class='data-table'])[4]//p"
+            + "| (//table[@class='data-table'])[5]//p"
+    )
+    public List<WebElement> answers;
+
+    public void click(List<WebElement> clickQuestions) {
+
+        for (WebElement each : clickQuestions) {
+            each.click();
+            BrowserUtils.waitFor(2);
+        }
+    }
+
+
 }

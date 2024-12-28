@@ -4,6 +4,7 @@ import com.cydeo.pages.LoginPage;
 import com.cydeo.pages.ServiceModulePage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +12,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.Browser;
 
 import java.util.List;
 
@@ -93,12 +95,29 @@ public class ServiceModule_StepDefinitions {
         serviceModulePage.usingPortalServices.click();
 
 
+    }
 
+    @And("user is able to access  any question")
+    public void userIsAbleToAccessAnyQuestion() {
 
+        serviceModulePage.workProcess.click();
+        serviceModulePage.click(serviceModulePage.questions);
+    }
 
+    @And("user is able to see the answer")
+    public void userIsAbleToSeeTheAnswer() {
+    List<WebElement> answerText = serviceModulePage.answers;
+        for (WebElement each : answerText) {
+            Assert.assertTrue(each.isDisplayed());
 
+        }
 
+    }
 
+    @And("user is able to click like button")
+    public void userIsAbleToClickLikeButton() {
+        BrowserUtils.waitFor(3);
+        serviceModulePage.click(serviceModulePage.likeButton);
 
     }
 }
