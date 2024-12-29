@@ -31,6 +31,25 @@ public class EmployeePage {
    @FindBy(xpath = "(//span[. = 'Settings'])[3]")
     public WebElement settingsSection;
 
+    @FindBy(xpath = "(//span[. = 'Company Structure'])[1]")
+    public WebElement companyBtn;
 
+    @FindBy(xpath = "(//span[. = 'Add department'])[1]")
+    public WebElement addDepartmentBtn;
+
+    @FindBy(xpath = "//input[@id ='NAME']")
+    public WebElement departmentNameInput;
+
+    @FindBy(xpath = "//select[@id = 'IBLOCK_SECTION_ID']/option")
+    public List<WebElement> departmentNamesDropdownList;
+
+    @FindBy(xpath = "//select[@id ='IBLOCK_SECTION_ID']")
+    public WebElement parentDepartmentDropdown;
+
+    @FindBy (xpath = "//span[.='Add']")
+    public WebElement addBtn;
+
+    @FindBy (xpath = "//a[@data-role = 'department_name']")
+    public List <WebElement> newDepartmentBox;
 
 }
