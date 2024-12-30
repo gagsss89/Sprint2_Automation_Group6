@@ -6,3 +6,12 @@ Feature: login functionality.
     When User enter valid "hr1@cydeo.com" and "UserUser"
     And User click login button
     Then User lands on home page
+
+    Scenario: Error message displayed
+      Given user is in login page
+      When user enter invalid "hr1@cydeo.com" or "Useruser"
+      And user click login button
+      Then user get an error message for invalid login attempt
+
+
+

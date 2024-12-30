@@ -21,15 +21,21 @@ public class LoginPage {
     @FindBy(xpath = "//input[@class='login-btn']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//div[@class='errortext']")
+    public WebElement errorMessage;
+
+
+
     public void login (){
         Driver.getDriver().get(ConfigurationReader.getProperty("envURL"));
         username.sendKeys(ConfigurationReader.getProperty("username"));
         password.sendKeys(ConfigurationReader.getProperty("password"));
         loginButton.click();
+        errorMessage.isDisplayed();
+
+        }
+
 
     }
 
 
-
-
-}
