@@ -51,7 +51,7 @@ public class Login_StepDefinitions {
     @Then("user get an error message for invalid login attempt")
     public void userGetAnErrorMessageForInvalidLoginAttempt() {
         String expectedMessage = "Incorrect login or password";
-        String actualMessage = "Incorrect login or password";
+        String actualMessage = loginPage.errorMessage.getText();
         Assert.assertEquals(expectedMessage,actualMessage);
 
     }
