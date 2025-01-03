@@ -22,9 +22,10 @@ public class ServiceModule_StepDefinitions {
     ServiceModulePage serviceModulePage = new ServiceModulePage();
 
 
+
     @Given("user is on the Symmetrix home page")
     public void user_is_on_the_symmetrix_home_page() {
-        loginPage.login();
+        serviceModulePage.loginPage();
 
 
     }

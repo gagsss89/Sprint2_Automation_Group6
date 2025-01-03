@@ -1,6 +1,7 @@
 package com.cydeo.pages;
 
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -73,6 +74,19 @@ public class ServiceModulePage {
             BrowserUtils.waitFor(2);
         }
     }
+
+    LoginPage loginPage = new LoginPage();
+
+    //created my own login method because the one from Feliz doesn't work for me
+    public void loginPage (){
+        Driver.getDriver().get(ConfigurationReader.getProperty("envURL"));
+        loginPage.username.sendKeys(ConfigurationReader.getProperty("username"));
+        loginPage.password.sendKeys(ConfigurationReader.getProperty("password"));
+        loginPage.loginButton.click();
+
+
+    }
+
 
 
 }
